@@ -1,0 +1,81 @@
+﻿using AUTOSYS.Consts;
+using AUTOSYS.Models;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
+
+namespace AUTOSYS
+{
+    /// <summary>
+    /// App.xaml の相互作用ロジック
+    /// </summary>
+    public partial class App : Application
+    {
+        /// <summary>
+        /// 语言
+        /// </summary>
+        public static EnumLanguage Language { get; set; } = EnumLanguage.CN;
+
+        /// <summary>
+        /// 登录用户
+        /// </summary>
+        public static TB_User LoginUser { get; set; }
+
+        /// <summary>
+        /// 语言
+        /// </summary>
+        public static List<string> ErrorList { get; set; } = new List<string>();
+
+        /// <summary>
+        /// 应用启动
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            // 语言获取
+            switch (Enum.Parse(typeof(EnumLanguage), ComUtility.GetXmValue("language")))
+            {
+                case EnumLanguage.EN:
+                    Language = EnumLanguage.EN;
+                    break;
+                case EnumLanguage.JP:
+                    Language = EnumLanguage.JP;
+                    break;
+                default:
+                    Language = EnumLanguage.CN;
+                    break;
+            }
+
+            // 更换语言包
+            UpdateLanguage();
+        }
+
+        /// <summary>
+        /// 更换语言包
+        /// </summary>
+        public static void UpdateLanguage()
+        {
+            // 获取全部资源
+            List<ResourceDictionary> dictionaryList = new List<ResourceDictionary>();
+            foreach (ResourceDictionary dictionary in Application.Current.Resources.MergedDictionaries)
+            {
+                dictionaryList.Add(dictionary);
+            }
+
+            // 需要语言资源
+            string requestedLanguage = $@"Styles/Language{Language.GetValue()}.xaml";
+            ResourceDictionary resourceDictionary = dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals(requestedLanguage));
+
+            if (resourceDictionary == null)
+            {
+                ResourceDictionary resourceCN = dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals(@"Styles/LanguageCN.xaml"));
+                if (resourceCN != null) Application.Current.Resources.MergedDictionaries.Remove(resourceCN);
+                Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+            }
+        }
+    }
+}

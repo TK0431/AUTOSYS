@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!-- P01 -->
+    <sys:String x:Key="P01mainTitle">AAAA</sys:String>
+    <sys:String x:Key="P01close">BBBB</sys:String>
+    <sys:String x:Key="P01login">CCCC</sys:String>
+    <sys:String x:Key="P01Search">DDDD</sys:String>
+</ResourceDictionary>

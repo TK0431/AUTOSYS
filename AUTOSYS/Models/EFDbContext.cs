@@ -10,11 +10,11 @@ namespace AUTOSYS.Models
 {
 
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
-    public class EFCoreDbContext : DbContext
+    public class EFDbContext : DbContext
     {
-        public EFCoreDbContext() : base("name=MysqlConnectionString")
+        public EFDbContext() : base("name=MysqlConnectionString")
         {
-            Database.SetInitializer<EFCoreDbContext>(null);
+            Database.SetInitializer<EFDbContext>(null);
             Database.Log = x =>
             {
                 LogUtility.WriteInfo(x.LastIndexOf("\r\n") > 0 ? x.Remove(x.LastIndexOf("\r\n"), 2) : x);

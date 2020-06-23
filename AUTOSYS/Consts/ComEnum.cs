@@ -1,4 +1,5 @@
-﻿using AUTOSYS.Models;
+﻿using AUTOSYS.Model;
+using AUTOSYS.Models;
 using AUTOSYS.Utility;
 using System;
 using System.Collections.Generic;
@@ -15,14 +16,12 @@ namespace AUTOSYS.Consts
         Type_01,
         [Value("02"), Description("权限"), English("Level"), Japanese("権限")]
         Type_02,
-        [Value("03"), Description("开发语言"), English("Development Language"), Japanese("開発言語")]
+        [Value("03"), Description("作业区分"), English("Work Type"), Japanese("作業区分")]
         Type_03,
-        [Value("04"), Description("作业区分"), English("Work Type"), Japanese("作業区分")]
+        [Value("04"), Description("语言"), English("Language"), Japanese("言語")]
         Type_04,
-        [Value("05"), Description("语言"), English("Language"), Japanese("言語")]
-        Type_05,
-        [Value("06"), Description("消息"), English("Message"), Japanese("メッセージ")]
-        Type_06
+        [Value("05"), Description("消息"), English("Message"), Japanese("メッセージ")]
+        Type_05
     }
 
     /// <summary>
@@ -48,25 +47,25 @@ namespace AUTOSYS.Consts
         [Value("P00"), Description(""), English(""), Japanese("")]
         ALL,
         [Value("P01"), Description("主页面"), English("Main"), Japanese("メニュー")]
-        UI000,
+        P01,
         [Value("P02"), Description("登录"), English("Login"), Japanese("登録")]
-        UI001,
+        P02,
         [Value("P03"), Description("人员"), English("User"), Japanese("要員")]
-        UI002,
+        P03,
         [Value("P04"), Description("组"), English("Group"), Japanese("組")]
-        UI003,
+        P04,
         [Value("P05"), Description("页面5"), English("Page5"), Japanese("ページ5")]
-        UI101,
+        P05,
         [Value("P06"), Description("页面6"), English("Page6"), Japanese("ページ6")]
-        UI102,
+        P06,
         [Value("P07"), Description("页面7"), English("Page7"), Japanese("ページ7")]
-        UI201,
+        P07,
         [Value("P08"), Description("页面8"), English("Page8"), Japanese("ページ8")]
-        UI202,
+        P08,
         [Value("P09"), Description("页面9"), English("Page9"), Japanese("ページ9")]
-        UI902,
+        P09,
         [Value("P10"), Description("页面10"), English("Page10"), Japanese("ページ10")]
-        UI903,
+        P10,
     }
 
     /// <summary>
@@ -148,10 +147,9 @@ namespace AUTOSYS.Consts
 
                 AddDatas(db, typeof(PageEnum), EnumType.Type_01.GetValue());
                 AddDatas(db, typeof(EnumLevel), EnumType.Type_02.GetValue());
-                AddDatas(db, typeof(EnumDevLang), EnumType.Type_03.GetValue());
-                AddDatas(db, typeof(EnumDevType), EnumType.Type_04.GetValue());
-                AddDatas(db, typeof(EnumLanguage), EnumType.Type_05.GetValue());
-                AddDatas(db, typeof(EnumMessage), EnumType.Type_06.GetValue());
+                AddDatas(db, typeof(EnumDevType), EnumType.Type_03.GetValue());
+                AddDatas(db, typeof(EnumLanguage), EnumType.Type_04.GetValue());
+                AddDatas(db, typeof(EnumMessage), EnumType.Type_05.GetValue());
             }
         }
 
@@ -170,7 +168,6 @@ namespace AUTOSYS.Consts
                 {
                     Type = typeValue,
                     Value = y.Value,
-                    Language = x.Value,
                     Name = y.Description,
                 }));
             });

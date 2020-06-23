@@ -1,9 +1,9 @@
 ﻿using AUTOSYS.Consts;
+using AUTOSYS.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Reflection;
 
 namespace AUTOSYS.Utility
 {
@@ -19,59 +19,66 @@ namespace AUTOSYS.Utility
         /// <param name="parameters"></param>
         /// <returns></returns>
         public static string GetMessage(this EnumMessage code, params string[] para)
-        {
-            return para.Length > 0 ? string.Format(code.GetDescription(), para) : code.GetDescription();
-        }
+        =>  para.Length > 0 ? string.Format(code.GetDescription(), para) : code.GetDescription();
 
         /// <summary>
-        /// EnumのDescriptionを取得
+        /// 枚举Lsit信息获取
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="code"></param>
-        /// <param name="para"></param>
+        /// <param name="enumType"></param>
+        /// <param name="flgRemoveAll">如果不想要All,设置为true</param>
         /// <returns></returns>
         public static List<EnumItem> GetList(this Type enumType, bool flgRemoveAll = false)
         {
+            // 返回值
             List<EnumItem> result = new List<EnumItem>();
 
+            // 枚举遍历
             foreach (var e in Enum.GetValues(enumType))
             {
                 EnumItem item = new EnumItem();
 
+                // 获取Index
                 item.Index = (int)e;
+                // 是否加入All枚举
                 if (flgRemoveAll && item.Index == 0) continue;
 
-                // Description
-                object[] objArr = null;
+                // 获取描述
+                object[] objArr;
                 switch (App.Language)
                 {
+                    // 中文
                     case EnumLanguage.CN:
                         objArr = e.GetType().GetField(e.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), true);
                         if (objArr != null && objArr.Length > 0)
                         {
+                            // 中文获取Description特性
                             DescriptionAttribute da = objArr[0] as DescriptionAttribute;
                             item.Description = da.Description;
                         }
                         break;
+                    // 英文
                     case EnumLanguage.EN:
                         objArr = e.GetType().GetField(e.ToString()).GetCustomAttributes(typeof(EnglishAttribute), true);
                         if (objArr != null && objArr.Length > 0)
                         {
+                            // 英文获取Description特性
                             EnglishAttribute da = objArr[0] as EnglishAttribute;
                             item.Description = da.Value;
                         }
                         break;
+                    // 日文
                     default:
                         objArr = e.GetType().GetField(e.ToString()).GetCustomAttributes(typeof(JapaneseAttribute), true);
                         if (objArr != null && objArr.Length > 0)
                         {
+                            // 日文获取Japanese特性
                             JapaneseAttribute da = objArr[0] as JapaneseAttribute;
                             item.Description = da.Value;
                         }
                         break;
                 }
 
-                // DBValue
+                // 获取Value值
                 object[] dbValueArr = e.GetType().GetField(e.ToString()).GetCustomAttributes(typeof(ValueAttribute), true);
                 if (dbValueArr != null && dbValueArr.Length > 0)
                 {
@@ -81,7 +88,6 @@ namespace AUTOSYS.Utility
 
                 result.Add(item);
             }
-
             return result;
         }
 
@@ -92,29 +98,29 @@ namespace AUTOSYS.Utility
         /// <param name="code"></param>
         /// <param name="para"></param>
         /// <returns></returns>
-        public static List<EnumItem> GetValues(this Type enumType)
-        {
-            List<EnumItem> result = new List<EnumItem>();
+        //public static List<EnumItem> GetValues(this Type enumType)
+        //{
+        //    List<EnumItem> result = new List<EnumItem>();
 
-            foreach (var e in Enum.GetValues(enumType))
-            {
-                EnumItem item = new EnumItem();
+        //    foreach (var e in Enum.GetValues(enumType))
+        //    {
+        //        EnumItem item = new EnumItem();
 
-                item.Index = (int)e;
+        //        item.Index = (int)e;
 
-                // DBValue
-                object[] dbValueArr = e.GetType().GetField(e.ToString()).GetCustomAttributes(typeof(ValueAttribute), true);
-                if (dbValueArr != null && dbValueArr.Length > 0)
-                {
-                    ValueAttribute da = dbValueArr[0] as ValueAttribute;
-                    item.Value = da.Value;
-                }
+        //        // DBValue
+        //        object[] dbValueArr = e.GetType().GetField(e.ToString()).GetCustomAttributes(typeof(ValueAttribute), true);
+        //        if (dbValueArr != null && dbValueArr.Length > 0)
+        //        {
+        //            ValueAttribute da = dbValueArr[0] as ValueAttribute;
+        //            item.Value = da.Value;
+        //        }
 
-                result.Add(item);
-            }
+        //        result.Add(item);
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
 
         /// <summary>
         /// 
@@ -173,25 +179,31 @@ namespace AUTOSYS.Utility
             {
                 switch (App.Language)
                 {
+                    // 中文
+                    case EnumLanguage.CN:
+                        DescriptionAttribute[] attrs2 = memberInfos[0].GetCustomAttributes(typeof(DescriptionAttribute), false) as DescriptionAttribute[];
+                        if (attrs2 != null && attrs2.Length > 0)
+                        {
+                            // 中文获取Description特性
+                            return attrs2[0].Description;
+                        }
+                        break;
+                    // 英文
                     case EnumLanguage.EN:
                         EnglishAttribute[] attrs0 = memberInfos[0].GetCustomAttributes(typeof(EnglishAttribute), false) as EnglishAttribute[];
                         if (attrs0 != null && attrs0.Length > 0)
                         {
+                            // 英文获取English特性
                             return attrs0[0].Value;
                         }
                         break;
-                    case EnumLanguage.JP:
+                    // 日文
+                    default:
                         JapaneseAttribute[] attrs1 = memberInfos[0].GetCustomAttributes(typeof(JapaneseAttribute), false) as JapaneseAttribute[];
                         if (attrs1 != null && attrs1.Length > 0)
                         {
+                            // 日文获取Japanese特性
                             return attrs1[0].Value;
-                        }
-                        break;
-                    default:
-                        DescriptionAttribute[] attrs2 = memberInfos[0].GetCustomAttributes(typeof(DescriptionAttribute), false) as DescriptionAttribute[];
-                        if (attrs2 != null && attrs2.Length > 0)
-                        {
-                            return attrs2[0].Description;
                         }
                         break;
                 }
@@ -199,3 +211,4 @@ namespace AUTOSYS.Utility
             return code.ToString();
         }
     }
+}

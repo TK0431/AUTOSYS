@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Xml.Linq;
@@ -100,6 +101,23 @@ namespace AUTOSYS.Utility
             }
 
             ex.Save(AppDomain.CurrentDomain.BaseDirectory + @"\setting.xml");
+        }
+
+        public static void Map<S, T>(this T target, S source)
+        {
+            Type targetType = target.GetType();
+            Type sourceType = source.GetType();
+
+            foreach (PropertyInfo p in sourceType.GetProperties())
+            {
+
+                PropertyInfo targetP = targetType.GetProperty(p.Name);
+
+                if (targetP != null)
+                {
+                    targetP.SetValue(target, p.GetValue(source));
+                }
+            }
         }
     }
 

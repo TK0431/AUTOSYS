@@ -1,11 +1,10 @@
 ﻿using AUTOSYS.Consts;
 using AUTOSYS.Models;
+using AUTOSYS.Pages;
+using AUTOSYS.Utility;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace AUTOSYS
@@ -25,16 +24,14 @@ namespace AUTOSYS
         /// </summary>
         public static TB_User LoginUser { get; set; }
 
-        /// <summary>
-        /// 语言
-        /// </summary>
-        public static List<string> ErrorList { get; set; } = new List<string>();
+
 
         /// <summary>
-        /// 应用启动
+        /// 窗口启动
         /// </summary>
+        /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected override void OnStartup(StartupEventArgs e)
+        private void Application_Startup(object sender, StartupEventArgs e)
         {
             // 语言获取
             switch (Enum.Parse(typeof(EnumLanguage), ComUtility.GetXmValue("language")))
@@ -52,6 +49,11 @@ namespace AUTOSYS
 
             // 更换语言包
             UpdateLanguage();
+
+            // 启动主画面
+            P01 win = new P01();
+            this.MainWindow = win;
+            win.Show();
         }
 
         /// <summary>
@@ -61,7 +63,7 @@ namespace AUTOSYS
         {
             // 获取全部资源
             List<ResourceDictionary> dictionaryList = new List<ResourceDictionary>();
-            foreach (ResourceDictionary dictionary in Application.Current.Resources.MergedDictionaries)
+            foreach (ResourceDictionary dictionary in Current.Resources.MergedDictionaries)
             {
                 dictionaryList.Add(dictionary);
             }
@@ -72,9 +74,13 @@ namespace AUTOSYS
 
             if (resourceDictionary == null)
             {
+                // 移除初期中文包
                 ResourceDictionary resourceCN = dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals(@"Styles/LanguageCN.xaml"));
-                if (resourceCN != null) Application.Current.Resources.MergedDictionaries.Remove(resourceCN);
-                Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+                if (resourceCN != null) Current.Resources.MergedDictionaries.Remove(resourceCN);
+
+                // 添加新语言包
+                ResourceDictionary langRd = LoadComponent(new Uri(requestedLanguage, UriKind.Relative)) as ResourceDictionary;
+                Current.Resources.MergedDictionaries.Add(langRd);
             }
         }
     }

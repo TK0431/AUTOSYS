@@ -1,6 +1,11 @@
-﻿using System;
+﻿using AUTOSYS.Models;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +18,7 @@ namespace AUTOSYS.Utility
         /// <summary>
         /// DbContext
         /// </summary>
-        private EFCoreDbContext _db;
+        private EFDbContext _db;
 
         /// <summary>
         /// 事務
@@ -33,9 +38,9 @@ namespace AUTOSYS.Utility
         /// <summary>
         /// 初期化
         /// </summary>
-        public EntityDao(bool transFlg = false)
+        public EntityUtility(bool transFlg = false)
         {
-            _db = new EFCoreDbContext();
+            _db = new EFDbContext();
 
             // 事務設定
             if (transFlg)
@@ -193,16 +198,6 @@ namespace AUTOSYS.Utility
         /// <returns></returns>
         public List<T> FindAll<T>(string sql) where T : class
             => _db.Database.SqlQuery<T>(sql).ToList();
-
-        /// <summary>
-        /// SQLで複数検索(NoTrack)
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="sql"></param>
-        /// <param name="paramArray"></param>
-        /// <returns></returns>
-        public List<T> FindAllLimit<T>(string sql, string gamenId) where T : class
-            => _db.Database.SqlQuery<T>(sql + CommonUtil.getItemMaxCount(gamenId)).ToList();
 
         /// <summary>
         /// SQLで複数検索(NoTrack)

@@ -3,12 +3,91 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:AUTOSYS.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="P02">
+      mc:Ignorable="d"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      Background="{DynamicResource MaterialDesignPaper}"
+      Title="MainWindow" d:DesignHeight="700" d:DesignWidth="1000">
+    <DockPanel Margin="16">
+        <materialDesign:ColorZone Mode="PrimaryMid" DockPanel.Dock="Top" Margin="0 0 0 8">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="True" Content="{StaticResource P02Step01}" IsEnabled="False"/>
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step02}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step03}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step04}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step05}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step06}" IsEnabled="False" />
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <TextBox Margin="0 8 0 8" DockPanel.Dock="Top"
+                 materialDesign:HintAssist.Hint="{StaticResource P02project}"
+                 materialDesign:HintAssist.IsFloating="True"
+                 materialDesign:TextFieldAssist.HasClearButton="True"
+                 materialDesign:TextFieldAssist.HasOutlinedTextField="True"
+                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                 materialDesign:TextFieldAssist.TextFieldCornerRadius="4"/>
+        <Grid Margin="0 8 0 8" DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <DatePicker Grid.Column="0" materialDesign:HintAssist.Hint="{StaticResource P02timeFrom}" MinWidth="100" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 0 8 0"/>
+            <TextBlock Grid.Column="1" Text="～" VerticalAlignment="Center" Margin="8 0"/>
+            <DatePicker Grid.Column="2" materialDesign:HintAssist.Hint="{StaticResource P02timeTo}" MinWidth="100" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="8 0 0 0" />
+        </Grid>
+        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" VerticalAlignment="Top" Margin="0 8 0 8" DockPanel.Dock="Top"
+                     AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Height="100"
+                     materialDesign:HintAssist.Hint="{StaticResource P02info}"/>
+        <Grid Margin="0 8 0 8" DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Content="{StaticResource P02step}" IsEnabled="False" Margin="0 0 8 0" Style="{StaticResource MaterialDesignRaisedAccentButton}"/>
+            <CheckBox Grid.Row="0" Grid.Column="1" Margin="8" Content="CD" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+            <CheckBox Grid.Row="0" Grid.Column="2" Margin="8" Content="UT" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+            <CheckBox Grid.Row="0" Grid.Column="3" Margin="8" Content="IT" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
 
-    <Grid>
-        <TextBlock Text="主页面"/>
-    </Grid>
+            <Button Grid.Row="1" Grid.Column="0" Content="{StaticResource P02language}" IsEnabled="False" Margin="0 0 8 0" Style="{StaticResource MaterialDesignRaisedAccentButton}"/>
+            <CheckBox Grid.Row="1" Grid.Column="1" Margin="8" Content="C#" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30"  />
+            <CheckBox Grid.Row="1" Grid.Column="2" Margin="8" Content="Java" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+            <CheckBox Grid.Row="1" Grid.Column="3" Margin="8" Content="Delphi" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+            <CheckBox Grid.Row="1" Grid.Column="4" Margin="8" Content="C" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+            <CheckBox Grid.Row="1" Grid.Column="5" Margin="8" Content="VB" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+            <CheckBox Grid.Row="1" Grid.Column="6" Margin="8" Content="Cobol" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+
+            <Button Grid.Row="2" Grid.Column="0" Content="{StaticResource P02db}" IsEnabled="False" Margin="0 0 8 0" Style="{StaticResource MaterialDesignRaisedAccentButton}"/>
+            <CheckBox Grid.Row="2" Grid.Column="1" Margin="8" Content="MySql" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30"  />
+            <CheckBox Grid.Row="2" Grid.Column="2" Margin="8" Content="SQLServer" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+            <CheckBox Grid.Row="2" Grid.Column="3" Margin="8" Content="Orical" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+            <CheckBox Grid.Row="2" Grid.Column="4" Margin="8" Content="DB2" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+            <CheckBox Grid.Row="2" Grid.Column="5" Margin="8" Content="Postgre" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+
+            <Button Grid.Row="3" Grid.Column="0" Content="{StaticResource P02tool}" IsEnabled="False" Margin="0 0 8 0" Style="{StaticResource MaterialDesignRaisedAccentButton}"/>
+            <CheckBox Grid.Row="3" Grid.Column="1" Margin="8" Content="VS2019" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30"  />
+            <CheckBox Grid.Row="3" Grid.Column="2" Margin="8" Content="eclips" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+            <CheckBox Grid.Row="3" Grid.Column="3" Margin="8" Content="Excel" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+            <CheckBox Grid.Row="3" Grid.Column="4" Margin="8" Content="VSCode" IsChecked="True" materialDesign:CheckBoxAssist.CheckBoxSize="30" />
+        </Grid>
+        <Button DockPanel.Dock="Bottom" HorizontalAlignment="Right" Content="{StaticResource P02next}" Margin="8"/>
+        <Grid/>
+    </DockPanel>
 </Page>

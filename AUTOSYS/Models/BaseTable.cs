@@ -4,27 +4,27 @@ using System.ComponentModel.DataAnnotations;
 namespace AUTOSYS.Models
 {
     /// <summary>
-    /// BaseTabele
+    /// 表基础项目
     /// </summary>
     [Serializable]
     public class BaseTable
     {
         [Display(Name = "ID"), Key]
-        public int Id { get; set; }
+        public int id { get; set; }
 
         [Display(Name = "删除FLG")]
-        public bool DelFlg { get; set; }
+        public bool delflg { get; set; }
 
         [Display(Name = "登录者CD"), Required, StringLength(10)]
-        public string InserterCd { get; set; }
+        public string insertercd { get; set; }
 
         [Display(Name = "登录日时")]
-        public DateTime InserteTime { get; set; }
+        public DateTime insertetime { get; set; }
 
         [Display(Name = "更新者CD"), Required, StringLength(10)]
-        public string UpdaterCd { get; set; }
+        public string updatercd { get; set; }
 
         [Display(Name = "更新日时")]
-        public DateTime UpdateTime { get; set; }
+        public DateTime updatetime { get; set; }
     }
 }

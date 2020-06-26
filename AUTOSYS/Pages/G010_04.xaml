@@ -1,0 +1,96 @@
+﻿<Page x:Class="AUTOSYS.Pages.G010_04"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:AUTOSYS.Pages"
+      mc:Ignorable="d"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      Background="{DynamicResource MaterialDesignPaper}"
+      Title="MainWindow" d:DesignHeight="700" d:DesignWidth="1000">
+    <DockPanel>
+        <materialDesign:ColorZone Mode="PrimaryMid" DockPanel.Dock="Top" Margin="0 0 0 8">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step01}" IsEnabled="False"/>
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step02}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step03}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="True" Content="{StaticResource P02Step04}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step05}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step06}" IsEnabled="False" />
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <DockPanel DockPanel.Dock="Top">
+            <ComboBox DockPanel.Dock="Left" IsEditable="True" Margin="8"
+                      materialDesign:HintAssist.Hint="{StaticResource P04type}"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      materialDesign:HintAssist.IsFloating="True"
+                      materialDesign:HintAssist.HintOpacity=".26"
+                      HorizontalAlignment="Left" MinWidth="270" 
+                      ItemsSource="{Binding ProjectItems}" 
+                      SelectedItem="{Binding SelectedProjectItem}"
+                      DisplayMemberPath="pid"
+                      Text="{Binding ProjectId}"
+                      SelectionChanged="Project_SelectionChanged"/>
+            <Button Content="{StaticResource P04typeadd}" DockPanel.Dock="Left" Margin="8"/>
+            <Button Content="{StaticResource P04typedel}" DockPanel.Dock="Left" Margin="8"/>
+            <Grid/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Button Content="{StaticResource P04templateselect}" DockPanel.Dock="Right" Margin="8"/>
+            <TextBox Margin="8" Text="{Binding P04template}" IsReadOnly="True"
+                 materialDesign:HintAssist.Hint="{StaticResource P02project}"
+                 materialDesign:HintAssist.IsFloating="True"
+                 materialDesign:TextFieldAssist.HasClearButton="True"
+                 materialDesign:TextFieldAssist.HasOutlinedTextField="True"
+                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                 materialDesign:TextFieldAssist.TextFieldCornerRadius="4"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <TextBox Margin="8" Text="{Binding P04detrow}" IsReadOnly="True" Width="100"
+                 materialDesign:HintAssist.Hint="{StaticResource P04detrow}"
+                 materialDesign:HintAssist.IsFloating="True"
+                 materialDesign:TextFieldAssist.HasClearButton="True"
+                 materialDesign:TextFieldAssist.HasOutlinedTextField="True"
+                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                 materialDesign:TextFieldAssist.TextFieldCornerRadius="4"/>
+            <TextBox Margin="8" Text="{Binding P04grouprow}" IsReadOnly="True" Width="100"
+                 materialDesign:HintAssist.Hint="{StaticResource P04grouprow}"
+                 materialDesign:HintAssist.IsFloating="True"
+                 materialDesign:TextFieldAssist.HasClearButton="True"
+                 materialDesign:TextFieldAssist.HasOutlinedTextField="True"
+                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                 materialDesign:TextFieldAssist.TextFieldCornerRadius="4"/>
+            <ComboBox DockPanel.Dock="Left" IsEditable="True" Margin="8"
+                      materialDesign:HintAssist.Hint="{StaticResource P05vh}"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      materialDesign:HintAssist.IsFloating="True"
+                      materialDesign:HintAssist.HintOpacity=".26"
+                      HorizontalAlignment="Left" MinWidth="100" 
+                      ItemsSource="{Binding ProjectItems}" 
+                      SelectedItem="{Binding SelectedProjectItem}"
+                      DisplayMemberPath="pid"
+                      Text="{Binding ProjectId}"
+                      SelectionChanged="Project_SelectionChanged"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <Button Click="Button_Click" Content="{StaticResource P04next}" Margin="8" DockPanel.Dock="Right"/>
+            <Button Click="Button_Click_1" Content="{StaticResource P04back}" Margin="8" DockPanel.Dock="Right"/>
+            <Grid/>
+        </DockPanel>
+        <ListView Margin="8" ItemsSource="{Binding }">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{StaticResource P03user}" />
+                    <GridViewColumn Header="{StaticResource P03card}" />
+                    <GridViewColumn Header="{StaticResource P03update}" />
+                    <GridViewColumn Header="{StaticResource P03delete}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Page>

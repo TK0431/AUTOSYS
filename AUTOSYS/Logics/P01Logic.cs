@@ -21,11 +21,11 @@ namespace AUTOSYS.Logics
 
                 StringBuilder sql = new StringBuilder();
                 sql.AppendLine("select * from tb_user");
-                para.Add(new MySqlParameter("IP", ComUtility.GetLocalIPV4().ToString()));
-                sql.AppendLine("where IP = @IP");
-                sql.AppendLine("  and DateStart <= CURDATE()");
-                sql.AppendLine("  and CURDATE()  <= DateEnd");
-                sql.AppendLine("  and DelFlg = '0'");
+                para.Add(new MySqlParameter("uip", ComUtility.GetLocalIPV4().ToString()));
+                sql.AppendLine("where uip = @uip");
+                sql.AppendLine("  and udfrom <= CURDATE()");
+                sql.AppendLine("  and CURDATE()  <= udend");
+                sql.AppendLine("  and delflg = '0'");
                 TB_User user = db.FindSingle<TB_User>(sql.ToString(), para);
 
                 if (user != null)

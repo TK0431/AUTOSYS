@@ -45,23 +45,23 @@ namespace AUTOSYS.Pages
             {
                 switch ((PageEnum)selected.Index)
                 {
-                    case PageEnum.P02:
-                        _model.MainPage = new P02();
+                    case PageEnum.G010_01:
+                        _model.MainPage = new G010_01();
                         break;
-                    case PageEnum.P03:
-                        _model.MainPage = new P03();
+                    case PageEnum.G010_02:
+                        _model.MainPage = new G010_02();
                         break;
-                    case PageEnum.P04:
-                        _model.MainPage = new P04();
+                    case PageEnum.G010_03:
+                        _model.MainPage = new G010_03();
                         break;
-                    case PageEnum.P05:
-                        _model.MainPage = new P05();
+                    case PageEnum.G010_04:
+                        _model.MainPage = new G010_04();
                         break;
-                    case PageEnum.P06:
-                        _model.MainPage = new P06();
+                    case PageEnum.G010_05:
+                        _model.MainPage = new G010_05();
                         break;
-                    case PageEnum.P07:
-                        _model.MainPage = new P07();
+                    case PageEnum.G010_06:
+                        _model.MainPage = new G010_06();
                         break;
                     case PageEnum.P08:
                         _model.MainPage = new P08();

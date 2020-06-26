@@ -16,13 +16,23 @@ using System.Windows.Shapes;
 namespace AUTOSYS.Pages
 {
     /// <summary>
-    /// P07.xaml 的交互逻辑
+    /// P05.xaml 的交互逻辑
     /// </summary>
-    public partial class P07 : Page
+    public partial class G010_04 : Page
     {
-        public P07()
+        public G010_04()
         {
             InitializeComponent();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Pages/G010_03.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Pages/G010_05.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

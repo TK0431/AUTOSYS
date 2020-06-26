@@ -9,14 +9,15 @@
 
     <!-- P02 -->
     <sys:String x:Key="P02Step01">项目情报</sys:String>
-    <sys:String x:Key="P02Step02">责任者登录</sys:String>
+    <sys:String x:Key="P02Step02">组管理</sys:String>
     <sys:String x:Key="P02Step03">成员管理</sys:String>
     <sys:String x:Key="P02Step04">录入</sys:String>
     <sys:String x:Key="P02Step05">作业分配</sys:String>
     <sys:String x:Key="P02Step06">完了</sys:String>
+    <sys:String x:Key="P02projectId">项目ID</sys:String>
     <sys:String x:Key="P02project">项目名称</sys:String>
-    <sys:String x:Key="P02timeFrom">项目区间From</sys:String>
-    <sys:String x:Key="P02timeTo">项目区间To</sys:String>
+    <sys:String x:Key="P02timeFrom">项目区间(开始)</sys:String>
+    <sys:String x:Key="P02timeTo">项目区间(终了)</sys:String>
     <sys:String x:Key="P02info">项目说明</sys:String>
     <sys:String x:Key="P02step">项目阶段</sys:String>
     <sys:String x:Key="P02type">类别追加</sys:String>
@@ -27,24 +28,34 @@
     <sys:String x:Key="P02add2">追加</sys:String>
     <sys:String x:Key="P02tool">开发工具</sys:String>
     <sys:String x:Key="P02add3">追加</sys:String>
+    <sys:String x:Key="P02delete">废止</sys:String>
+    <sys:String x:Key="P02save">保存</sys:String>
     <sys:String x:Key="P02next">下一步</sys:String>
 
     <!-- P03 -->
-    <sys:String x:Key="P03user">用户名</sys:String>
-    <sys:String x:Key="P03card">卡号</sys:String>
-    <sys:String x:Key="P03ip">IP</sys:String>
-    <sys:String x:Key="P03password">密码</sys:String>
+    <sys:String x:Key="P03user">组名</sys:String>
+    <sys:String x:Key="P03card">组ID</sys:String>
+    <sys:String x:Key="P03update">变更</sys:String>
+    <sys:String x:Key="P03delete">删除</sys:String>
+    <sys:String x:Key="P03add">追加</sys:String>
+    <sys:String x:Key="P03excelInd">导入</sys:String>
+    <sys:String x:Key="P03excelOut">导出</sys:String>
     <sys:String x:Key="P03back">上一步</sys:String>
     <sys:String x:Key="P03next">下一步</sys:String>
 
     <!-- P04 -->
-    <sys:String x:Key="P04user">户名</sys:String>
-    <sys:String x:Key="P04card">ID</sys:String>
-    <sys:String x:Key="P04ip">IP</sys:String>
-    <sys:String x:Key="P04group">组</sys:String>
-    <sys:String x:Key="P04add">用户追加</sys:String>
-    <sys:String x:Key="P04input">文件导入</sys:String>
+    <sys:String x:Key="P04type">类别</sys:String>
+    <sys:String x:Key="P04typeadd">类别追加</sys:String>
+    <sys:String x:Key="P04typedel">类别删除</sys:String>
+    <sys:String x:Key="P04template">模板路径</sys:String>
+    <sys:String x:Key="P04templateselect">模板选择</sys:String>
+    <sys:String x:Key="P04detrow">明细开始行</sys:String>
+    <sys:String x:Key="P04grouprow">组行</sys:String>
+    <sys:String x:Key="P05vh">排版</sys:String>
     <sys:String x:Key="P04back">上一步</sys:String>
-    <sys:String x:Key="P04skip">跳过</sys:String>
     <sys:String x:Key="P04next">下一步</sys:String>
+
+    <!-- P05 -->
+    <sys:String x:Key="P05back">上一步</sys:String>
+    <sys:String x:Key="P05next">下一步</sys:String>
 </ResourceDictionary>

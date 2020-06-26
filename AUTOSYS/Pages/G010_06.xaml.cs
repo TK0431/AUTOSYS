@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace AUTOSYS.Pages
 {
     /// <summary>
-    /// P03.xaml 的交互逻辑
+    /// P07.xaml 的交互逻辑
     /// </summary>
-    public partial class P03 : Page
+    public partial class G010_06 : Page
     {
-        public P03()
+        public G010_06()
         {
             InitializeComponent();
         }

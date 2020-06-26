@@ -48,18 +48,18 @@ namespace AUTOSYS.Consts
         ALL,
         [Value("P01"), Description("主页面"), English("Main"), Japanese("メニュー")]
         P01,
-        [Value("P02"), Description("登录"), English("Login"), Japanese("登録")]
-        P02,
-        [Value("P03"), Description("人员"), English("User"), Japanese("要員")]
-        P03,
-        [Value("P04"), Description("组"), English("Group"), Japanese("組")]
-        P04,
-        [Value("P05"), Description("页面5"), English("Page5"), Japanese("ページ5")]
-        P05,
-        [Value("P06"), Description("页面6"), English("Page6"), Japanese("ページ6")]
-        P06,
-        [Value("P07"), Description("页面7"), English("Page7"), Japanese("ページ7")]
-        P07,
+        [Value("G010_01"), Description("项目情报"), English("Project"), Japanese("プロジェクト情報")]
+        G010_01,
+        [Value("G010_02"), Description("组管理"), English("Group"), Japanese("グループ管理")]
+        G010_02,
+        [Value("G010_03"), Description("成员管理"), English("User"), Japanese("メンバー管理")]
+        G010_03,
+        [Value("G010_04"), Description("录入"), English("Input"), Japanese("入力")]
+        G010_04,
+        [Value("G010_05"), Description("作业分配"), English("Work"), Japanese("ジョブ割当")]
+        G010_05,
+        [Value("G010_06"), Description("完了"), English("End"), Japanese("終了")]
+        G010_06,
         [Value("P08"), Description("页面8"), English("Page8"), Japanese("ページ8")]
         P08,
         [Value("P09"), Description("页面9"), English("Page9"), Japanese("ページ9")]

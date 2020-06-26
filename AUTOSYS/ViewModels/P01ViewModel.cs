@@ -23,7 +23,7 @@ namespace AUTOSYS.ViewModels
         /// <summary>
         /// 主Page
         /// </summary>
-        public Page MainPage { get; set; } = new P02();
+        public Page MainPage { get; set; } = new G010_01();
 
         /// <summary>
         /// Wbs 菜单
@@ -44,12 +44,12 @@ namespace AUTOSYS.ViewModels
             MenuItems = new ObservableCollection<EnumItem>()
             {
                 PageEnum.P01.GetItem(), // 
-                PageEnum.P02.GetItem(), //
-                PageEnum.P03.GetItem(), //
-                PageEnum.P04.GetItem(), //
-                PageEnum.P05.GetItem(), //
-                PageEnum.P06.GetItem(), //
-                PageEnum.P07.GetItem(), //
+                PageEnum.G010_01.GetItem(), //
+                PageEnum.G010_02.GetItem(), //
+                PageEnum.G010_03.GetItem(), //
+                PageEnum.G010_04.GetItem(), //
+                PageEnum.G010_05.GetItem(), //
+                PageEnum.G010_06.GetItem(), //
                 PageEnum.P08.GetItem(), //
                 PageEnum.P09.GetItem(), //
                 PageEnum.P10.GetItem(), //

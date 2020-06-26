@@ -144,7 +144,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Consts\ComConst.cs" />
+    <Compile Include="Logics\G010_06Logic.cs" />
+    <Compile Include="Logics\G010_05Logic.cs" />
+    <Compile Include="Logics\G010_04Logic.cs" />
+    <Compile Include="Logics\G010_03Logic.cs" />
+    <Compile Include="Logics\G010_02Logic.cs" />
+    <Compile Include="Logics\G010_01Logic.cs" />
     <Compile Include="Logics\P01Logic.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseTable.cs" />
     <Compile Include="Models\EFDbContext.cs" />
     <Compile Include="Models\DB\TB_Function.cs" />
@@ -157,23 +164,23 @@
     <Compile Include="Pages\P01.xaml.cs">
       <DependentUpon>P01.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\P02.xaml.cs">
-      <DependentUpon>P02.xaml</DependentUpon>
+    <Compile Include="Pages\G010_01.xaml.cs">
+      <DependentUpon>G010_01.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\P03.xaml.cs">
-      <DependentUpon>P03.xaml</DependentUpon>
+    <Compile Include="Pages\G010_02.xaml.cs">
+      <DependentUpon>G010_02.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\P04.xaml.cs">
-      <DependentUpon>P04.xaml</DependentUpon>
+    <Compile Include="Pages\G010_03.xaml.cs">
+      <DependentUpon>G010_03.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\P05.xaml.cs">
-      <DependentUpon>P05.xaml</DependentUpon>
+    <Compile Include="Pages\G010_04.xaml.cs">
+      <DependentUpon>G010_04.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\P06.xaml.cs">
-      <DependentUpon>P06.xaml</DependentUpon>
+    <Compile Include="Pages\G010_05.xaml.cs">
+      <DependentUpon>G010_05.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\P07.xaml.cs">
-      <DependentUpon>P07.xaml</DependentUpon>
+    <Compile Include="Pages\G010_06.xaml.cs">
+      <DependentUpon>G010_06.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\P08.xaml.cs">
       <DependentUpon>P08.xaml</DependentUpon>
@@ -196,6 +203,8 @@
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
     <Compile Include="ViewModels\Base\RelayTCommand.cs" />
+    <Compile Include="ViewModels\G010_02ViewModel.cs" />
+    <Compile Include="ViewModels\G010_01ViewModel.cs" />
     <Compile Include="ViewModels\P01ViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -207,27 +216,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\P02.xaml">
+    <Page Include="Pages\G010_01.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\P03.xaml">
+    <Page Include="Pages\G010_02.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\P04.xaml">
+    <Page Include="Pages\G010_03.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\P05.xaml">
+    <Page Include="Pages\G010_04.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\P06.xaml">
+    <Page Include="Pages\G010_05.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\P07.xaml">
+    <Page Include="Pages\G010_06.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,49 @@
+﻿<Page x:Class="AUTOSYS.Pages.G010_02"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:AUTOSYS.Pages"
+      mc:Ignorable="d"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      Background="{DynamicResource MaterialDesignPaper}"
+      Title="MainWindow" d:DesignHeight="700" d:DesignWidth="1000">
+    <DockPanel Margin="16">
+        <materialDesign:ColorZone Mode="PrimaryMid" DockPanel.Dock="Top" Margin="0 0 0 8">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step01}" IsEnabled="False"/>
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="True" Content="{StaticResource P02Step02}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step03}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step04}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step05}" IsEnabled="False" />
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" IsChecked="False" Content="{StaticResource P02Step06}" IsEnabled="False" />
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <!-- 成员管理 -->
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Bottom" Margin="0 8 0 0">
+                <Button Click="Next_Click" Content="{StaticResource P03next}" DockPanel.Dock="Right" Margin="8 0"/>
+                <Button Click="Back_Click" Content="{StaticResource P03back}" DockPanel.Dock="Right" Margin="8 0"/>
+                <Button Content="{StaticResource P03excelOut}" DockPanel.Dock="Right" Margin="8 0"/>
+                <Button Content="{StaticResource P03excelInd}" DockPanel.Dock="Right" Margin="8 0"/>
+                <Button Content="{StaticResource P03add}" DockPanel.Dock="Right" Margin="8 0"/>
+                <Grid/>
+            </DockPanel>
+            <ListView Margin="0 0 0 8" ItemsSource="{Binding }">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="{StaticResource P03user}" />
+                        <GridViewColumn Header="{StaticResource P03card}" />
+                        <GridViewColumn Header="{StaticResource P03update}" />
+                        <GridViewColumn Header="{StaticResource P03delete}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+    </DockPanel>
+</Page>

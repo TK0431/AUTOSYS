@@ -142,7 +142,7 @@ namespace AUTOSYS.Utility
         /// <param name="where"></param>
         /// <returns></returns>
         public List<T> FindAll<T>(Expression<Func<T, bool>> where) where T : class
-            => where == null ? _db.Set<T>().AsNoTracking().ToList() : _db.Set<T>().AsNoTracking().Where(where).ToList();
+            => _db.Set<T>().AsNoTracking().Where(where).ToList();
 
         /// <summary>
         /// Whereで複数検索(NoTrack)
@@ -442,11 +442,11 @@ namespace AUTOSYS.Utility
         private Action<T> GetAddWhereAction<T>() where T : class
         {
             ParameterExpression parameter = Expression.Parameter(typeof(T), "x");
-            MemberExpression member1 = Expression.Property(parameter, "DelFlg");
-            MemberExpression member2 = Expression.Property(parameter, "InserterCd");
-            MemberExpression member3 = Expression.Property(parameter, "InserteTime");
-            MemberExpression member4 = Expression.Property(parameter, "UpdaterCd");
-            MemberExpression member5 = Expression.Property(parameter, "UpdateTime");
+            MemberExpression member1 = Expression.Property(parameter, "delflg");
+            MemberExpression member2 = Expression.Property(parameter, "insertercd");
+            MemberExpression member3 = Expression.Property(parameter, "insertetime");
+            MemberExpression member4 = Expression.Property(parameter, "updatercd");
+            MemberExpression member5 = Expression.Property(parameter, "updatetime");
             BlockExpression block1 = Expression.Block(Expression.Assign(member1, Expression.Constant(false, typeof(bool))));
             BlockExpression block2 = Expression.Block(Expression.Assign(member2, Expression.Constant("000000", typeof(string))));
             BlockExpression block3 = Expression.Block(Expression.Assign(member3, Expression.Constant(this.DbConectTime, typeof(DateTime))));

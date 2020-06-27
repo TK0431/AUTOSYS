@@ -1,6 +1,9 @@
 ﻿using AUTOSYS.Models;
+using AUTOSYS.Utility;
 using AUTOSYS.ViewModels;
 using System;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace AUTOSYS.Pages
@@ -23,6 +26,13 @@ namespace AUTOSYS.Pages
             this.DataContext = _model;
         }
 
+        private void Page_Unloaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            //Dictionary<string, string> dic = new Dictionary<string, string>();
+            //dic.Add("pid", _model.ProjectId);
+            //XmlUtility.SetXmlDataValues("G010_01", dic);
+        }
+
         /// <summary>
         /// 选择下拉框
         /// </summary>
@@ -40,6 +50,19 @@ namespace AUTOSYS.Pages
             _model.DateFrom = project.pdfrom?.ToString("yyyy/M/d");
             _model.DateEnd = project.pdend?.ToString("yyyy/M/d");
             _model.Detail = project.pdetail;
+
+            // 更换头项目
+            App.Project = project;
+            var win = Window.GetWindow(this);
+            if (win != null)
+            {
+                G000ViewModel winModel = win.DataContext as G000ViewModel;
+                if (winModel != null)
+                {
+                    winModel.PID = project.pid;
+                    winModel.PName = project.pname;
+                }
+            }
         }
 
         /// <summary>

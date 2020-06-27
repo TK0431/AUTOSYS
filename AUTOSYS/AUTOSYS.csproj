@@ -144,13 +144,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Consts\ComConst.cs" />
+    <Compile Include="Logics\G901Logic.cs" />
     <Compile Include="Logics\G010_06Logic.cs" />
     <Compile Include="Logics\G010_05Logic.cs" />
     <Compile Include="Logics\G010_04Logic.cs" />
     <Compile Include="Logics\G010_03Logic.cs" />
     <Compile Include="Logics\G010_02Logic.cs" />
     <Compile Include="Logics\G010_01Logic.cs" />
-    <Compile Include="Logics\P01Logic.cs" />
+    <Compile Include="Logics\G000Logic.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseTable.cs" />
     <Compile Include="Models\EFDbContext.cs" />
@@ -161,8 +162,11 @@
     <Compile Include="Models\DB\TB_User.cs" />
     <Compile Include="Models\DB\TB_WbsDay.cs" />
     <Compile Include="Models\DB\TB_WbsType.cs" />
-    <Compile Include="Pages\P01.xaml.cs">
-      <DependentUpon>P01.xaml</DependentUpon>
+    <Compile Include="Pages\G000.xaml.cs">
+      <DependentUpon>G000.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\G001.xaml.cs">
+      <DependentUpon>G001.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\G010_01.xaml.cs">
       <DependentUpon>G010_01.xaml</DependentUpon>
@@ -181,6 +185,9 @@
     </Compile>
     <Compile Include="Pages\G010_06.xaml.cs">
       <DependentUpon>G010_06.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\G901.xaml.cs">
+      <DependentUpon>G901.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\P08.xaml.cs">
       <DependentUpon>P08.xaml</DependentUpon>
@@ -203,16 +210,21 @@
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
     <Compile Include="ViewModels\Base\RelayTCommand.cs" />
+    <Compile Include="ViewModels\G901ViewModel.cs" />
     <Compile Include="ViewModels\G010_02ViewModel.cs" />
     <Compile Include="ViewModels\G010_01ViewModel.cs" />
-    <Compile Include="ViewModels\P01ViewModel.cs" />
+    <Compile Include="ViewModels\G000ViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Consts\ComAttribute.cs" />
     <Compile Include="Consts\ComEnum.cs" />
-    <Page Include="Pages\P01.xaml">
+    <Page Include="Pages\G000.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\G001.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -237,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\G010_06.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\G901.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,7 +311,7 @@
   <ItemGroup />
   <ItemGroup>
     <Resource Include="setting.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>

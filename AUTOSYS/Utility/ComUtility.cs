@@ -49,60 +49,6 @@ namespace AUTOSYS.Utility
             return byte2String;
         }
 
-        /// <summary>
-        /// Net-KINDサーバーのIP取得
-        /// </summary>
-        /// <param name="code"></param>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        public static string GetXmValue(string key)
-            => XElement.Load(AppDomain.CurrentDomain.BaseDirectory + @"\setting.xml")
-            .Element(key).Attribute("value").Value;
-
-        /// <summary>
-        /// Net-KINDサーバーのIP取得
-        /// </summary>
-        /// <param name="code"></param>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        public static Dictionary<string, string> GetXmValues(string key)
-        {
-            Dictionary<string, string> result = new Dictionary<string, string>();
-            XElement ex = XElement.Load(AppDomain.CurrentDomain.BaseDirectory + @"\setting.xml");
-            ex.Elements(key).ToList().ForEach(e => result.Add(e.Attribute("name").Value, e.Attribute("value").Value));
-
-            return result;
-        }
-
-        /// <summary>
-        /// Net-KINDサーバーのIP取得
-        /// </summary>
-        /// <param name="code"></param>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        public static void SetRecordValue(string key, Dictionary<string, string> dic)
-        {
-            XElement ex = XElement.Load(AppDomain.CurrentDomain.BaseDirectory + @"\setting.xml");
-
-            foreach (string k in dic.Keys)
-            {
-                XElement e = ex.Elements(key).Where(x => x.Attribute("name").Value == k).FirstOrDefault();
-                if (e != null)
-                {
-                    e.SetAttributeValue("value", dic[k]);
-                }
-                else
-                {
-                    XElement node = new XElement(key);
-                    node.Attribute("name").Value = k;
-                    node.Attribute("value").Value = dic[k];
-                    ex.Add(node);
-                }
-            }
-
-            ex.Save(AppDomain.CurrentDomain.BaseDirectory + @"\setting.xml");
-        }
-
         public static void Map<S, T>(this T target, S source)
         {
             Type targetType = target.GetType();
@@ -199,7 +145,7 @@ namespace AUTOSYS.Utility
 
             // DateTimeへの変更
             DateTime resultDate;
-            if (DateTime.TryParse(value.ToString(),out resultDate))
+            if (DateTime.TryParse(value.ToString(), out resultDate))
                 return resultDate as DateTime?;
             else
                 return failValue;

@@ -5,12 +5,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Security.RightsManagement;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Navigation;
 
 namespace AUTOSYS.Logics
 {
@@ -29,6 +24,22 @@ namespace AUTOSYS.Logics
             {
                 Expression<Func<TB_Project, bool>> where = x => x.delflg == false;
                 model.ProjectItems = new ObservableCollection<TB_Project>(db.FindAll(where));
+            }
+
+            if (App.Project != null)
+            {
+                foreach (TB_Project data in model.ProjectItems)
+                {
+                    if (data.pid == App.Project.pid)
+                    {
+                        model.SelectedProjectItem = data;
+                        model.ProjectId = data.pid;
+                        model.DateFrom = data.pdfrom?.ToString("yyyy/M/d");
+                        model.DateEnd = data.pdend?.ToString("yyyy/M/d");
+                        model.Detail = data.pdetail;
+                        break;
+                    }
+                }
             }
         }
 
@@ -52,7 +63,7 @@ namespace AUTOSYS.Logics
                 foreach (TB_Project item in model.ProjectItems)
                 {
                     if (item.pid == model.SelectedProjectItem.pid)
-                    { 
+                    {
                         model.ProjectItems.Remove(item);
                         break;
                     }

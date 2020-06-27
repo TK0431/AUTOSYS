@@ -34,8 +34,7 @@
                       ItemsSource="{Binding ProjectItems}" 
                       SelectedItem="{Binding SelectedProjectItem}"
                       DisplayMemberPath="pid"
-                      Text="{Binding ProjectId}"
-                      SelectionChanged="Project_SelectionChanged"/>
+                      Text="{Binding ProjectId}"/>
             <Button Content="{StaticResource P04typeadd}" DockPanel.Dock="Left" Margin="8"/>
             <Button Content="{StaticResource P04typedel}" DockPanel.Dock="Left" Margin="8"/>
             <Grid/>
@@ -74,12 +73,11 @@
                       ItemsSource="{Binding ProjectItems}" 
                       SelectedItem="{Binding SelectedProjectItem}"
                       DisplayMemberPath="pid"
-                      Text="{Binding ProjectId}"
-                      SelectionChanged="Project_SelectionChanged"/>
+                      Text="{Binding ProjectId}"/>
         </DockPanel>
         <DockPanel DockPanel.Dock="Bottom">
-            <Button Click="Button_Click" Content="{StaticResource P04next}" Margin="8" DockPanel.Dock="Right"/>
-            <Button Click="Button_Click_1" Content="{StaticResource P04back}" Margin="8" DockPanel.Dock="Right"/>
+            <Button Click="Next_Click" Content="{StaticResource P04next}" Margin="8" DockPanel.Dock="Right"/>
+            <Button Click="Back_Click" Content="{StaticResource P04back}" Margin="8" DockPanel.Dock="Right"/>
             <Grid/>
         </DockPanel>
         <ListView Margin="8" ItemsSource="{Binding }">

@@ -43,19 +43,24 @@
     <sys:String x:Key="P03back">上一步</sys:String>
     <sys:String x:Key="P03next">下一步</sys:String>
 
-    <!-- P04 -->
-    <sys:String x:Key="P04type">类别</sys:String>
-    <sys:String x:Key="P04typeadd">类别追加</sys:String>
-    <sys:String x:Key="P04typedel">类别删除</sys:String>
-    <sys:String x:Key="P04template">模板路径</sys:String>
-    <sys:String x:Key="P04templateselect">模板选择</sys:String>
-    <sys:String x:Key="P04detrow">明细开始行</sys:String>
-    <sys:String x:Key="P04grouprow">组行</sys:String>
-    <sys:String x:Key="P05vh">排版</sys:String>
-    <sys:String x:Key="P04back">上一步</sys:String>
-    <sys:String x:Key="P04next">下一步</sys:String>
+    <!-- G010_03 -->
+    <sys:String x:Key="G010_03id">ID</sys:String>
+    <sys:String x:Key="G010_03name">姓名</sys:String>
+    <sys:String x:Key="G010_03ip">IP</sys:String>
+    <sys:String x:Key="G010_03group">组号</sys:String>
+    <sys:String x:Key="G010_03update">修改</sys:String>
+    <sys:String x:Key="G010_03delete">删除</sys:String>
+    <sys:String x:Key="G010_03add">追加</sys:String>
+    <sys:String x:Key="G010_03excelInd">导入</sys:String>
+    <sys:String x:Key="G010_03excelOut">导出</sys:String>
+    <sys:String x:Key="G010_03back">上一步</sys:String>
+    <sys:String x:Key="G010_03next">下一步</sys:String>
 
     <!-- P05 -->
     <sys:String x:Key="P05back">上一步</sys:String>
     <sys:String x:Key="P05next">下一步</sys:String>
+
+    <!-- G901 -->
+    <sys:String x:Key="G901change">登录变更</sys:String>
+    <sys:String x:Key="G901next">下一步</sys:String>
 </ResourceDictionary>

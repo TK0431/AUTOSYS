@@ -5,7 +5,9 @@ using AUTOSYS.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Windows;
+using System.Windows.Media.Animation;
 
 namespace AUTOSYS
 {
@@ -24,7 +26,10 @@ namespace AUTOSYS
         /// </summary>
         public static TB_User LoginUser { get; set; }
 
-
+        /// <summary>
+        /// 当前Project
+        /// </summary>
+        public static TB_Project Project { get; set; }
 
         /// <summary>
         /// 窗口启动
@@ -34,7 +39,7 @@ namespace AUTOSYS
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             // 语言获取
-            switch (Enum.Parse(typeof(EnumLanguage), ComUtility.GetXmValue("language")))
+            switch (Enum.Parse(typeof(EnumLanguage), XmlUtility.GetXmValue("language")))
             {
                 case EnumLanguage.EN:
                     Language = EnumLanguage.EN;
@@ -51,7 +56,7 @@ namespace AUTOSYS
             UpdateLanguage();
 
             // 启动主画面
-            P01 win = new P01();
+            G000 win = new G000();
             this.MainWindow = win;
             win.Show();
         }

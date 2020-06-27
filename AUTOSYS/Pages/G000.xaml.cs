@@ -2,38 +2,29 @@
 using AUTOSYS.Model;
 using AUTOSYS.Utility;
 using AUTOSYS.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace AUTOSYS.Pages
 {
     /// <summary>
     /// P01.xaml 的交互逻辑
     /// </summary>
-    public partial class P01 : Window
+    public partial class G000 : Window
     {
         /// <summary>
         /// Model
         /// </summary>
-        private P01ViewModel _model;
+        private G000ViewModel _model;
 
-        public P01()
+        public G000()
         {
             InitializeComponent();
 
-            _model = new P01ViewModel();
+            _model = new G000ViewModel();
             this.DataContext = _model;
         }
 
@@ -96,6 +87,32 @@ namespace AUTOSYS.Pages
             TextBox tb = sender as TextBox;
             List<EnumItem> list = typeof(PageEnum).GetList();
             _model.MenuItems = new ObservableCollection<EnumItem>(list.Where(x => x.Description.Contains(tb.Text)));
+        }
+
+        /// <summary>
+        /// 登录按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            var view = new G901();
+            view.Owner = this;
+            view.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            view.ShowDialog();
+        }
+
+        /// <summary>
+        /// 关闭保存
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("language", App.Language.ToString());
+            dic.Add("pid", App.Project?.pid);
+            XmlUtility.SetXmValue(dic);
         }
     }
 }

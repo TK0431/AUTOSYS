@@ -13,17 +13,37 @@ namespace AUTOSYS.ViewModels
     /// <summary>
     /// 主画面
     /// </summary>
-    public class P01ViewModel : BaseViewModel
+    public class G000ViewModel : BaseViewModel
     {
         /// <summary>
         /// Logic
         /// </summary>
-        private P01Logic _logic = new P01Logic();
+        private G000Logic _logic = new G000Logic();
 
         /// <summary>
         /// 主Page
         /// </summary>
-        public Page MainPage { get; set; } = new G010_01();
+        public Page MainPage { get; set; } = new G001();
+
+        /// <summary>
+        /// 项目名
+        /// </summary>
+        public string PName { get; set; }
+
+        /// <summary>
+        /// 项目ID
+        /// </summary>
+        public string PID { get; set; }
+
+        /// <summary>
+        /// 用户ID
+        /// </summary>
+        public string UID { get; set; }
+
+        /// <summary>
+        /// 用户名
+        /// </summary>
+        public string UName { get; set; }
 
         /// <summary>
         /// Wbs 菜单
@@ -38,7 +58,7 @@ namespace AUTOSYS.ViewModels
         /// <summary>
         /// 初期化
         /// </summary>
-        public P01ViewModel()
+        public G000ViewModel()
         {
             // Wbs 菜单
             MenuItems = new ObservableCollection<EnumItem>()

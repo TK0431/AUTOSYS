@@ -7,10 +7,12 @@
     <sys:String x:Key="P01login">登录</sys:String>
     <sys:String x:Key="P01Search">检索</sys:String>
 
-    <!-- G901 -->
+    <!-- G001 -->
     <sys:String x:Key="G001loginchange">登录变更</sys:String>
     <sys:String x:Key="G001back">返回</sys:String>
+    <sys:String x:Key="G001id">用户ID</sys:String>
     <sys:String x:Key="G001passwork">用户密码</sys:String>
+    <sys:String x:Key="G001login">登录</sys:String>
 
     <!-- P02 -->
     <sys:String x:Key="P02Step01">项目情报</sys:String>

@@ -17,28 +17,12 @@ namespace AUTOSYS.Logics
         /// <param name="model"></param>
         public void Init(G000ViewModel model)
         {
-            
+            // 账户信息
+            model.UName = App.LoginUser?.uname;
+            model.UID = App.LoginUser?.uid;
+
             using (EntityUtility db = new EntityUtility())
             {
-                // 获取用户
-                List<MySqlParameter> para = new List<MySqlParameter>();
-
-                StringBuilder sql = new StringBuilder();
-                sql.AppendLine("select * from tb_user");
-                para.Add(new MySqlParameter("uip", ComUtility.GetLocalIPV4().ToString()));
-                sql.AppendLine("where uip = @uip");
-                sql.AppendLine("  and udfrom <= CURDATE()");
-                sql.AppendLine("  and CURDATE()  <= udend");
-                sql.AppendLine("  and delflg = '0'");
-                TB_User user = db.FindSingle<TB_User>(sql.ToString(), para);
-
-                if (user != null)
-                {
-                    model.UID = user.uid;
-                    model.UName = user.uname;
-                    App.LoginUser = user;
-                }
-
                 // 获取项目
                 model.PID= XmlUtility.GetXmValue("pid");
 

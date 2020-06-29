@@ -27,13 +27,13 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Column="1" Grid.Row="1" Width="300" Height="500">
-            <materialDesign:Flipper IsFlipped="True">
+        <DockPanel Grid.Column="1" Grid.Row="1" Width="300" Height="300">
+            <materialDesign:Flipper IsFlipped="{Binding IsFlipper,Mode=TwoWay}">
                 <materialDesign:Flipper.FrontContent>
                     <DockPanel>
                         <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock TextAlignment="Center" Text="{Binding UserName,FallbackValue=- --}" Margin="8"/>
-                            <Button Content="{StaticResource G001loginchange}" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="8"/>
+                            <TextBlock TextAlignment="Center" Text="{Binding UserName}" Margin="16"/>
+                            <Button Content="{StaticResource G001loginchange}" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="16"/>
                         </StackPanel>
                         <materialDesign:ColorZone Mode="PrimaryLight" VerticalAlignment="Stretch">
                             <materialDesign:PackIcon Kind="AccountCircle" Height="128" Width="128" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -51,18 +51,18 @@
                                 <TextBlock Margin="8" VerticalAlignment="Center" Text="{StaticResource G001back}"/>
                             </StackPanel>
                         </materialDesign:ColorZone>
-                        <Grid Grid.Row="1" Margin="32">
+                        <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <StackPanel Grid.Row="1" Grid.Column="1">
-                                <TextBox Text="{Binding UserId}" materialDesign:HintAssist.Hint="User" materialDesign:HintAssist.IsFloating="True" Margin="8"/>
-                                <PasswordBox Grid.Row="1" materialDesign:HintAssist.Hint="密码" materialDesign:HintAssist.IsFloating="True" Margin="8"
+                            <StackPanel Grid.Row="1" Grid.Column="1" Margin="32 0">
+                                <TextBox Text="{Binding UserId}" materialDesign:HintAssist.Hint="{StaticResource G001id}" materialDesign:HintAssist.IsFloating="True" Margin="16"/>
+                                <PasswordBox Grid.Row="1" materialDesign:HintAssist.Hint="{StaticResource G001passwork}" materialDesign:HintAssist.IsFloating="True" Margin="16"
                                      pass:PasswordBoxBindingHelper.Attach="true" 
                                      pass:PasswordBoxBindingHelper.Password="{Binding Path=PassWord,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                                <Button Content="登录" Command="{Binding Login}" CommandParameter="{Binding Path=.}" Margin="16"/>
+                                <Button Content="{StaticResource G001login}" Command="{Binding Login}" CommandParameter="{Binding Path=.}" Margin="16"/>
                             </StackPanel>
                         </Grid>
                     </DockPanel>

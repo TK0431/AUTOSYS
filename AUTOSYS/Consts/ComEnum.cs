@@ -46,8 +46,8 @@ namespace AUTOSYS.Consts
     {
         [Value("P00"), Description(""), English(""), Japanese("")]
         ALL,
-        [Value("P01"), Description("主页面"), English("Main"), Japanese("メニュー")]
-        P01,
+        [Value("G001"), Description("登录"), English("Login"), Japanese("登录")]
+        G001,
         [Value("G010_01"), Description("项目情报"), English("Project"), Japanese("プロジェクト情報")]
         G010_01,
         [Value("G010_02"), Description("组管理"), English("Group"), Japanese("グループ管理")]

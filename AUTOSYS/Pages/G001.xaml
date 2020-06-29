@@ -3,12 +3,71 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:AUTOSYS.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="G001">
-
+      xmlns:pass="clr-namespace:AUTOSYS.Utility"
+      mc:Ignorable="d"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      d:DesignHeight="700" d:DesignWidth="1000">
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="/AUTOSYS;component/Resources/g001back.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Column="1" Grid.Row="1" Width="300" Height="500">
+            <materialDesign:Flipper IsFlipped="True">
+                <materialDesign:Flipper.FrontContent>
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" Text="{Binding UserName,FallbackValue=- --}" Margin="8"/>
+                            <Button Content="{StaticResource G001loginchange}" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="8"/>
+                        </StackPanel>
+                        <materialDesign:ColorZone Mode="PrimaryLight" VerticalAlignment="Stretch">
+                            <materialDesign:PackIcon Kind="AccountCircle" Height="128" Width="128" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </materialDesign:ColorZone>
+                    </DockPanel>
+                </materialDesign:Flipper.FrontContent>
+                <materialDesign:Flipper.BackContent>
+                    <DockPanel>
+                        <materialDesign:ColorZone Mode="Accent" DockPanel.Dock="Top">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="50">
+                                <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Margin="8"
+                                        Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
+                                    <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right"/>
+                                </Button>
+                                <TextBlock Margin="8" VerticalAlignment="Center" Text="{StaticResource G001back}"/>
+                            </StackPanel>
+                        </materialDesign:ColorZone>
+                        <Grid Grid.Row="1" Margin="32">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="1" Grid.Column="1">
+                                <TextBox Text="{Binding UserId}" materialDesign:HintAssist.Hint="User" materialDesign:HintAssist.IsFloating="True" Margin="8"/>
+                                <PasswordBox Grid.Row="1" materialDesign:HintAssist.Hint="密码" materialDesign:HintAssist.IsFloating="True" Margin="8"
+                                     pass:PasswordBoxBindingHelper.Attach="true" 
+                                     pass:PasswordBoxBindingHelper.Password="{Binding Path=PassWord,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                <Button Content="登录" Command="{Binding Login}" CommandParameter="{Binding Path=.}" Margin="16"/>
+                            </StackPanel>
+                        </Grid>
+                    </DockPanel>
+                </materialDesign:Flipper.BackContent>
+            </materialDesign:Flipper>
+        </DockPanel>
     </Grid>
 </Page>

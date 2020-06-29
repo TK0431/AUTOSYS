@@ -26,7 +26,7 @@ namespace AUTOSYS.Utility
         public static void SetXmValue(string key, string value)
         {
             XElement ex = XElement.Load(AppDomain.CurrentDomain.BaseDirectory + @"\setting.xml");
-            ex.Element(key).SetAttributeValue("value", value);
+            ex.Element(key).SetAttributeValue("value", value ?? "");
             ex.Save(AppDomain.CurrentDomain.BaseDirectory + @"\setting.xml");
         }
 
@@ -41,7 +41,7 @@ namespace AUTOSYS.Utility
             XElement ex = XElement.Load(AppDomain.CurrentDomain.BaseDirectory + @"\setting.xml");
             foreach (string key in dic.Keys)
             {
-                ex.Element(key).SetAttributeValue("value", dic[key]);
+                ex.Element(key).SetAttributeValue("value", dic[key] ?? "");
             }
             ex.Save(AppDomain.CurrentDomain.BaseDirectory + @"\setting.xml");
         }
@@ -78,7 +78,7 @@ namespace AUTOSYS.Utility
                 XElement nd = new XElement("data");
                 foreach (string k in dic.Keys)
                 {
-                    nd.SetAttributeValue(k, dic[k]);
+                    nd.SetAttributeValue(k, dic[k] ?? "");
                 }
                 orig.Add(nd);
             }

@@ -91,7 +91,7 @@
         </materialDesign:DialogHost>
         <smtx:XamlDisplay VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center">
             <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" x:Name="SnackbarThree">
-                <materialDesign:SnackbarMessage Content="Default - accent" ActionContent="确认" />
+                <materialDesign:SnackbarMessage Content="Default - accent"/>
             </materialDesign:Snackbar>
         </smtx:XamlDisplay>
     </Grid>

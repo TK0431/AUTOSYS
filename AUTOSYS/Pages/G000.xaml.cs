@@ -36,6 +36,9 @@ namespace AUTOSYS.Pages
             {
                 switch ((PageEnum)selected.Index)
                 {
+                    case PageEnum.G001:
+                        _model.MainPage = new G001();
+                        break;
                     case PageEnum.G010_01:
                         _model.MainPage = new G010_01();
                         break;

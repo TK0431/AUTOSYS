@@ -144,6 +144,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Consts\ComConst.cs" />
+    <Compile Include="Logics\G001Logic.cs" />
     <Compile Include="Logics\G901Logic.cs" />
     <Compile Include="Logics\G010_06Logic.cs" />
     <Compile Include="Logics\G010_05Logic.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
     <Compile Include="ViewModels\Base\RelayTCommand.cs" />
+    <Compile Include="ViewModels\G001ViewModel.cs" />
     <Compile Include="ViewModels\G901ViewModel.cs" />
     <Compile Include="ViewModels\G010_02ViewModel.cs" />
     <Compile Include="ViewModels\G010_01ViewModel.cs" />
@@ -312,9 +314,9 @@
     <Resource Include="Resources\g001back.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="setting.xml">
+    <EmbeddedResource Include="setting.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\ai_128.ico" />

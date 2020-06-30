@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AUTOSYS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,21 @@ using System.Windows.Shapes;
 namespace AUTOSYS.Pages
 {
     /// <summary>
-    /// G001.xaml 的交互逻辑
+    /// 登录
     /// </summary>
     public partial class G001 : Page
     {
+        /// <summary>
+        /// Model
+        /// </summary>
+        private G001ViewModel _model;
+
         public G001()
         {
             InitializeComponent();
+
+            _model = new G001ViewModel(this);
+            this.DataContext = _model;
         }
     }
 }

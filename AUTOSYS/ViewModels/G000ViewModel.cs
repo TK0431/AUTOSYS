@@ -63,7 +63,7 @@ namespace AUTOSYS.ViewModels
             // Wbs 菜单
             MenuItems = new ObservableCollection<EnumItem>()
             {
-                PageEnum.P01.GetItem(), // 
+                PageEnum.G001.GetItem(), // 
                 PageEnum.G010_01.GetItem(), //
                 PageEnum.G010_02.GetItem(), //
                 PageEnum.G010_03.GetItem(), //

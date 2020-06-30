@@ -2,6 +2,7 @@
 using AUTOSYS.Models;
 using AUTOSYS.Pages;
 using AUTOSYS.Utility;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,11 @@ namespace AUTOSYS
         /// 当前Project
         /// </summary>
         public static TB_Project Project { get; set; }
+
+        /// <summary>
+        /// 消息机制
+        /// </summary>
+        public static SnackbarMessageQueue MessageQueue { get; set; }
 
         /// <summary>
         /// 窗口启动

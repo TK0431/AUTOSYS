@@ -117,5 +117,16 @@ namespace AUTOSYS.Pages
             dic.Add("pid", App.Project?.pid);
             XmlUtility.SetXmValue(dic);
         }
+
+        /// <summary>
+        /// 画面加载完毕
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // 消息框机制
+            App.MessageQueue = SnackbarThree.MessageQueue;
+        }
     }
 }

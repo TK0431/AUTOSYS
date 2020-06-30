@@ -1,9 +1,12 @@
-﻿using AUTOSYS.Models;
+﻿using AUTOSYS.Consts;
+using AUTOSYS.Models;
 using AUTOSYS.Utility;
 using AUTOSYS.ViewModels;
 using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace AUTOSYS.Logics
@@ -81,9 +84,14 @@ namespace AUTOSYS.Logics
                             {
                                 winModel.UID = user.uid;
                                 winModel.UName = user.uname;
+                                Task.Factory.StartNew(() => App.MessageQueue.Enqueue(EnumMessage.I001.GetMessage(), null, null, null, false, true, TimeSpan.FromMilliseconds(500)));
                             }
                         }
                     }
+                }
+                else
+                {
+                    Task.Factory.StartNew(() => App.MessageQueue.Enqueue(EnumMessage.W001.GetMessage(), "OK", delegate () { }));
                 }
             }
         }

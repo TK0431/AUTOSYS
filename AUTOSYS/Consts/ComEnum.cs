@@ -125,13 +125,12 @@ namespace AUTOSYS.Consts
     /// </summary>
     public enum EnumMessage
     {
-        [Value("00"), Description(""), English(""), Japanese("")]
+        [Value("0000"), Description(""), English(""), Japanese("")]
         ALL,
-        [Value("E01")]
-        [Description("Excel表【{0}】不存在")]
-        [English("Sheet【{0}】not exist")]
-        [Japanese("シート【{0}】存在なし")]
-        E01,
+        [Value("I001"), Description("登录成功"), English("Login success"), Japanese("登録成功")]
+        I001,
+        [Value("W001"), Description("登录失败"), English("Login faild"), Japanese("登録失敗")]
+        W001,
     }
 
     /// <summary>
